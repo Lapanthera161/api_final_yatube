@@ -15,7 +15,7 @@ class PostViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
     permission_classes = [IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
-    filter_backends = (DjangoFilterBackend)
+    filter_backends = [DjangoFilterBackend]
     filterset_fields = ['group']
 
     def perform_create(self, serializer):
